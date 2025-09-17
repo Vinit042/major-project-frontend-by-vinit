@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+        --c-bg: #FFFFFF;
+        --c-text-primary: #0D151C;
+        --c-text-secondary: #6B7280;
+        --c-accent: #1976D2;
+        --c-accent-light: #EBF2FA;
+        --c-border: #E5E7EB;
+        --c-sidebar-bg: #111827;
+        --c-sidebar-text: #D1D5DB;
+        --c-sidebar-active-bg: #1976D2;
+        --c-sidebar-active-text: #FFFFFF;
+        --c-sidebar-hover-bg: #1F2937;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #F9FAFB;
+    }
+    .sidebar {
+        background-color: var(--c-sidebar-bg);
+        color: var(--c-sidebar-text);
+    }
+    .sidebar .nav-item {
+        color: var(--c-sidebar-text);
+    }
+    .sidebar .nav-item:hover {
+        background-color: var(--c-sidebar-hover-bg);
+    }
+    .sidebar .nav-item.active {
+        background-color: var(--c-sidebar-active-bg);
+        color: var(--c-sidebar-active-text);
+        font-weight: 500;
+    }
+    .sidebar .nav-item.active .material-symbols-outlined {
+        color: var(--c-sidebar-active-text) !important;
+    }
+    .sidebar .nav-item .material-symbols-outlined {
+        color: var(--c-sidebar-text);
+    }
+    .table-auto th {
+        color: var(--c-text-primary);
+        font-weight: 500;
+    }
+    .table-auto td {
+        color: var(--c-text-secondary);
+    }
+    .table-auto tbody tr:nth-child(even) {
+        background-color: #F9FAFB;
+    }
+    .table-auto tbody tr:hover {
+        background-color: var(--c-accent-light);
+    }
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+    .pill-green {
+        background-color: #DEF7EC;
+        color: #03543F;
+    }
+     .pill-green::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: #10B981;
+        margin-right: 0.5rem;
+    }
+    .pill-red {
+        background-color: #FDE2E1;
+        color: #B91C1C;
+    }
+    .pill-red::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: #EF4444;
+        margin-right: 0.5rem;
+    }
+    .pill-yellow {
+        background-color: #FEF3C7;
+        color: #92400E;
+    }
+     .pill-yellow::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: #FBBF24;
+        margin-right: 0.5rem;
+    }
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: max-content;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 10px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+<div class="flex h-screen bg-gray-50 text-gray-800">
+<div class="sidebar flex flex-col w-64 p-4 space-y-4">
+<div class="flex items-center gap-2 px-2 pb-4 border-b border-gray-700">
+<svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+<h2 class="text-xl font-bold text-white">RecruitFlow</h2>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>Dashboard
+        </a>
+<a class="nav-item active flex items-center gap-3 px-3 py-2 rounded-lg" href="/client.html">
+<span class="material-symbols-outlined">group</span>Clients
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="/process.html">
+<span class="material-symbols-outlined">work</span>Process
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">badge</span>Employees
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">groups</span>Teams
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">person_search</span>Candidates
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">upload_file</span>Data Import
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">videocam</span>Meetings
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">mail</span>Messages
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">payments</span>Payout Management
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">description</span>LOP Management
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">monitoring</span>Team Revenue
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">settings</span>Settings
+        </a>
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">receipt_long</span>Expense
+        </a>
+</nav>
+<div class="pt-4 border-t border-gray-700">
+<a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">logout</span>Logout
+        </a>
+</div>
+</div>
+<div class="flex-1 flex flex-col overflow-hidden">
+<header class="bg-white shadow-sm">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+<h2 class="text-2xl font-bold text-gray-900">Clients</h2>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+<span class="material-symbols-outlined">add</span>
+Add New Client
+</button>
+<button class="relative rounded-full p-2 text-gray-700 hover:bg-gray-100">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+<div class="flex items-center gap-3">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Admin" class="rounded-full w-10 h-10 object-cover"/>
+<div>
+<p class="text-base font-semibold text-gray-900">Admin</p>
+<p class="text-sm text-gray-600">admin@ownhrsolutions.com</p>
+</div>
+<button class="text-gray-700 hover:text-gray-900">
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50">
+<div class="container mx-auto px-6 py-8">
+<div class="bg-white p-4 rounded-lg shadow mb-6">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="relative flex-1 w-full md:w-auto">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search by client name, contact, or process..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex space-x-1 bg-gray-200 p-1 rounded-lg">
+<button class="px-3 py-1 text-sm font-medium text-gray-700 bg-white rounded-md shadow-sm">All</button>
+<button class="px-3 py-1 text-sm font-medium text-gray-500 hover:text-gray-700">Active</button>
+<button class="px-3 py-1 text-sm font-medium text-gray-500 hover:text-gray-700">Inactive</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-sm text-gray-600">Table View</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+<span class="text-sm text-gray-600">Card View</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full table-auto">
+<thead>
+<tr class="bg-gray-100 border-b">
+<th class="text-left py-3 px-4">Client Name</th>
+<th class="text-left py-3 px-4">Status</th>
+<th class="text-left py-3 px-4">Processes</th>
+<th class="text-left py-3 px-4">Contact Person</th>
+<th class="text-left py-3 px-4">Contact Info</th>
+<th class="text-right py-3 px-4">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="py-3 px-4 border-b font-medium text-gray-900">Abc company</td>
+<td class="py-3 px-4 border-b"><span class="pill pill-green">Active</span></td>
+<td class="py-3 px-4 border-b"><a class="text-blue-600 hover:underline" href="#">8 Processes</a></td>
+<td class="py-3 px-4 border-b">Alice Johnson</td>
+<td class="py-3 px-4 border-b">
+<div class="tooltip">
+<span class="truncate">alice.johnson@acmecorp.com</span>
+<span class="tooltiptext">alice.johnson@acmecorp.com</span>
+</div>
+<div>(555) 123-4567</div>
+</td>
+<td class="py-3 px-4 border-b text-right">
+<div class="flex justify-end gap-2">
+<a href="view_client.html">
+  <button class="p-1.5 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100 transition tooltip">
+    <span class="material-symbols-outlined">visibility</span>
+    <span class="tooltiptext">View</span>
+  </button>
+</a>
+
+<a href="#">
+  <button class="p-1.5 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition tooltip">
+    <span class="material-symbols-outlined">edit</span>
+    <span class="tooltiptext">Edit</span>
+  </button>
+</a>
+
+<button class="p-1.5 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">delete</span><span class="tooltiptext">Delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="py-3 px-4 border-b font-medium text-gray-900">Beta Industries</td>
+<td class="py-3 px-4 border-b"><span class="pill pill-red">Inactive</span></td>
+<td class="py-3 px-4 border-b"><a class="text-blue-600 hover:underline" href="#">3 Processes</a></td>
+<td class="py-3 px-4 border-b">Bob Williams</td>
+<td class="py-3 px-4 border-b">
+<div class="tooltip">
+<span class="truncate">bob.williams@betaindustries.com</span>
+<span class="tooltiptext">bob.williams@betaindustries.com</span>
+</div>
+<div>(555) 987-6543</div>
+</td>
+<td class="py-3 px-4 border-b text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">visibility</span><span class="tooltiptext">View</span></button>
+<button class="p-1.5 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">edit</span><span class="tooltiptext">Edit</span></button>
+<button class="p-1.5 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">delete</span><span class="tooltiptext">Delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="py-3 px-4 border-b font-medium text-gray-900">Gamma Solutions</td>
+<td class="py-3 px-4 border-b"><span class="pill pill-green">Active</span></td>
+<td class="py-3 px-4 border-b"><a class="text-blue-600 hover:underline" href="#">5 Processes</a></td>
+<td class="py-3 px-4 border-b">Carol Davis</td>
+<td class="py-3 px-4 border-b">
+<div class="tooltip">
+<span class="truncate">carol.davis@gammasolutions.com</span>
+<span class="tooltiptext">carol.davis@gammasolutions.com</span>
+</div>
+<div>(555) 246-8012</div>
+</td>
+<td class="py-3 px-4 border-b text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">visibility</span><span class="tooltiptext">View</span></button>
+<button class="p-1.5 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">edit</span><span class="tooltiptext">Edit</span></button>
+<button class="p-1.5 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">delete</span><span class="tooltiptext">Delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="py-3 px-4 border-b font-medium text-gray-900">Delta Systems</td>
+<td class="py-3 px-4 border-b"><span class="pill pill-yellow">Pending</span></td>
+<td class="py-3 px-4 border-b"><a class="text-blue-600 hover:underline" href="#">2 Processes</a></td>
+<td class="py-3 px-4 border-b">David Miller</td>
+<td class="py-3 px-4 border-b">
+<div class="tooltip">
+<span class="truncate">david.miller@deltasystems.com</span>
+<span class="tooltiptext">david.miller@deltasystems.com</span>
+</div>
+<div>(555) 369-1590</div>
+</td>
+<td class="py-3 px-4 border-b text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">visibility</span><span class="tooltiptext">View</span></button>
+<button class="p-1.5 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">edit</span><span class="tooltiptext">Edit</span></button>
+<button class="p-1.5 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined">delete</span><span class="tooltiptext">Delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 flex justify-between items-center">
+<span class="text-sm text-gray-600">Showing 1-10 of 40 results</span>
+<div class="flex items-center">
+<button class="p-2 text-gray-500 hover:text-blue-600 disabled:text-gray-300" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-4 py-2 text-sm rounded-lg bg-blue-600 text-white">1</button>
+<button class="px-4 py-2 text-sm rounded-lg hover:bg-gray-100">2</button>
+<button class="px-4 py-2 text-sm rounded-lg hover:bg-gray-100">3</button>
+<span class="px-4 py-2 text-sm">...</span>
+<button class="px-4 py-2 text-sm rounded-lg hover:bg-gray-100">40</button>
+<button class="p-2 text-gray-500 hover:text-blue-600">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Add inside your main content, below the table section -->
+<div id="client-card-view" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 py-6">
+  <!-- Card: Acme Corp -->
+  <div class="bg-white rounded-xl shadow p-5 flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-3xl text-blue-600 bg-blue-100 rounded-full p-2">business</span>
+      <div>
+        <h3 class="font-semibold text-lg text-gray-900">abc company </h3>
+        <span class="pill pill-green">Active</span>
+      </div>
+    </div>
+    <div class="text-sm text-gray-600">Processes: <a href="#" class="text-blue-600 hover:underline font-medium">8 Processes</a></div>
+    <div class="text-sm text-gray-600">Contact: <span class="font-medium text-gray-900">Alice Johnson</span></div>
+    <div class="text-sm text-gray-600 truncate" title="alice.johnson@acmecorp.com">alice.johnson@acmecorp.com</div>
+    <div class="text-sm text-gray-600">(555) 123-4567</div>
+    <div class="flex gap-2 mt-2 justify-end">
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-blue-600 tooltip" title="View Client"><span class="material-symbols-outlined">visibility</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-green-600 tooltip" title="Edit Client"><span class="material-symbols-outlined">edit</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-red-600 tooltip" title="Delete Client"><span class="material-symbols-outlined">delete</span></button>
+    </div>
+  </div>
+  <!-- Card: Beta Industries -->
+  <div class="bg-white rounded-xl shadow p-5 flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-3xl text-gray-600 bg-gray-100 rounded-full p-2">business</span>
+      <div>
+        <h3 class="font-semibold text-lg text-gray-900">Beta Industries</h3>
+        <span class="pill pill-red">Inactive</span>
+      </div>
+    </div>
+    <div class="text-sm text-gray-600">Processes: <a href="#" class="text-blue-600 hover:underline font-medium">3 Processes</a></div>
+    <div class="text-sm text-gray-600">Contact: <span class="font-medium text-gray-900">Bob Williams</span></div>
+    <div class="text-sm text-gray-600 truncate" title="bob.williams@betaindustries.com">bob.williams@betaindustries.com</div>
+    <div class="text-sm text-gray-600">(555) 987-6543</div>
+    <div class="flex gap-2 mt-2 justify-end">
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-blue-600 tooltip" title="View Client"><span class="material-symbols-outlined">visibility</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-green-600 tooltip" title="Edit Client"><span class="material-symbols-outlined">edit</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-red-600 tooltip" title="Delete Client"><span class="material-symbols-outlined">delete</span></button>
+    </div>
+  </div>
+  <!-- Card: Gamma Solutions -->
+  <div class="bg-white rounded-xl shadow p-5 flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-3xl text-blue-600 bg-blue-100 rounded-full p-2">business</span>
+      <div>
+        <h3 class="font-semibold text-lg text-gray-900">Gamma Solutions</h3>
+        <span class="pill pill-green">Active</span>
+      </div>
+    </div>
+    <div class="text-sm text-gray-600">Processes: <a href="#" class="text-blue-600 hover:underline font-medium">5 Processes</a></div>
+    <div class="text-sm text-gray-600">Contact: <span class="font-medium text-gray-900">Carol Davis</span></div>
+    <div class="text-sm text-gray-600 truncate" title="carol.davis@gammasolutions.com">carol.davis@gammasolutions.com</div>
+    <div class="text-sm text-gray-600">(555) 246-8012</div>
+    <div class="flex gap-2 mt-2 justify-end">
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-blue-600 tooltip" title="View Client"><span class="material-symbols-outlined">visibility</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-green-600 tooltip" title="Edit Client"><span class="material-symbols-outlined">edit</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-red-600 tooltip" title="Delete Client"><span class="material-symbols-outlined">delete</span></button>
+    </div>
+  </div>
+  <!-- Card: Delta Systems -->
+  <div class="bg-white rounded-xl shadow p-5 flex flex-col gap-4">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-3xl text-yellow-600 bg-yellow-100 rounded-full p-2">business</span>
+      <div>
+        <h3 class="font-semibold text-lg text-gray-900">Delta Systems</h3>
+        <span class="pill pill-yellow">Pending</span>
+      </div>
+    </div>
+    <div class="text-sm text-gray-600">Processes: <a href="#" class="text-blue-600 hover:underline font-medium">2 Processes</a></div>
+    <div class="text-sm text-gray-600">Contact: <span class="font-medium text-gray-900">David Miller</span></div>
+    <div class="text-sm text-gray-600 truncate" title="david.miller@deltasystems.com">david.miller@deltasystems.com</div>
+    <div class="text-sm text-gray-600">(555) 369-1590</div>
+    <div class="flex gap-2 mt-2 justify-end">
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-blue-600 tooltip" title="View Client"><span class="material-symbols-outlined">visibility</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-green-600 tooltip" title="Edit Client"><span class="material-symbols-outlined">edit</span></button>
+      <button class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-red-600 tooltip" title="Delete Client"><span class="material-symbols-outlined">delete</span></button>
+    </div>
+  </div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

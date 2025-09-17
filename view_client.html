@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>View Client - RecruitFlow</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+        --c-bg: #FFFFFF;
+        --c-text-primary: #0D151C;
+        --c-text-secondary: #6B7280;
+        --c-accent: #2563EB;
+        --c-accent-light: #EFF6FF;
+        --c-border: #E5E7EB;
+        --c-sidebar-bg: #111827;
+        --c-sidebar-text: #D1D5DB;
+        --c-sidebar-active-bg: #2563EB;
+        --c-sidebar-active-text: #FFFFFF;
+        --c-sidebar-hover-bg: #1F2937;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #F9FAFB;
+    }
+    .sidebar {
+        background-color: var(--c-sidebar-bg);
+        color: var(--c-sidebar-text);
+    }
+    .sidebar .nav-item {
+        color: var(--c-sidebar-text);
+    }
+    .sidebar .nav-item:hover {
+        background-color: var(--c-sidebar-hover-bg);
+    }
+    .sidebar .nav-item.active {
+        background-color: var(--c-sidebar-active-bg);
+        color: var(--c-sidebar-active-text);
+        font-weight: 500;
+    }
+    .sidebar .nav-item.active .material-symbols-outlined {
+        color: var(--c-sidebar-active-text) !important;
+    }
+    .sidebar .nav-item .material-symbols-outlined {
+        color: var(--c-sidebar-text);
+    }
+    .table-auto th {
+        color: var(--c-text-primary);
+        font-weight: 600;
+    }
+    .table-auto td {
+        color: var(--c-text-secondary);
+    }
+    .table-auto tbody tr:nth-child(even) {
+        background-color: #F9FAFB;
+    }
+    .table-auto tbody tr:hover {
+        background-color: var(--c-accent-light);
+    }
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+    .pill-green {
+        background-color: #D1FAE5;
+        color: #065F46;
+    }
+     .pill-green::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: #10B981;
+        margin-right: 0.5rem;
+    }
+    .pill-red {
+        background-color: #FEE2E2;
+        color: #991B1B;
+    }
+    .pill-red::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: #EF4444;
+        margin-right: 0.5rem;
+    }
+    .pill-yellow {
+        background-color: #FEF3C7;
+        color: #92400E;
+    }
+     .pill-yellow::before {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: #FBBF24;
+        margin-right: 0.5rem;
+    }
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: max-content;
+        background-color: #1F2937;
+        color: #fff;
+        text-align: center;
+        border-radius: 0.25rem;
+        padding: 5px 10px;
+        position: absolute;
+        z-index: 10;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 0.75rem;
+    }
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+<div class="flex h-screen bg-gray-50 text-gray-800">
+<div class="sidebar flex flex-col w-64 p-4 space-y-4 shrink-0 bg-[#0d151c] text-white h-screen">
+  <div class="flex items-center gap-2 px-2 pb-4 border-b border-gray-700 mb-2">
+    <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_6_330)">
+        <path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clipPath>
+      </defs>
+    </svg>
+    <h2 class="text-xl font-bold text-white">Owh HR<br>Solutions</h2>
+  </div>
+  <nav class="flex flex-col gap-1 flex-grow">
+    <a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>Dashboard
+        </a>
+    <a href="client.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#1976d2] text-white font-semibold shadow hover:bg-[#1565c0] transition">
+      <span class="material-symbols-outlined text-lg">group</span>
+      <span class="font-medium">Clients</span>
+    </a>
+    <a href="process.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">work</span>
+      <span class="font-medium">Process</span>
+    </a>
+    <a href="employees.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">badge</span>
+      <span class="font-medium">Employees</span>
+    </a>
+    <a href="teams.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">groups</span>
+      <span class="font-medium">Teams</span>
+    </a>
+    <a href="candidates.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">person_search</span>
+      <span class="font-medium">Candidates</span>
+    </a>
+    <a href="data-import.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">upload_file</span>
+      <span class="font-medium">Data Import</span>
+    </a>
+    <a href="meetings.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">videocam</span>
+      <span class="font-medium">Meetings</span>
+    </a>
+    <a href="messages.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">mail</span>
+      <span class="font-medium">Messages</span>
+    </a>
+    <a href="payout-management.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">paid</span>
+      <span class="font-medium">Payout Management</span>
+    </a>
+    <a href="lop-management.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">event_busy</span>
+      <span class="font-medium">LOP Management</span>
+    </a>
+    <a href="team-revenue.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">monitoring</span>
+      <span class="font-medium">Team Revenue</span>
+    </a>
+    <a href="settings.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">settings</span>
+      <span class="font-medium">Settings</span>
+    </a>
+    <a href="expense.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">receipt_long</span>
+      <span class="font-medium">Expense</span>
+    </a>
+  </nav>
+  <div class="pt-4 border-t border-gray-700 mt-2">
+    <a href="logout.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1a2230] transition">
+      <span class="material-symbols-outlined text-lg">logout</span>
+      <span class="font-medium">Logout</span>
+    </a>
+  </div>
+</div>
+<div class="flex-1 flex flex-col overflow-hidden">
+<header class="bg-white border-b border-gray-200 shadow-sm">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-end items-center h-16">
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <button class="p-2 rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500"></span>
+          </button>
+        </div>
+        <div class="flex items-center space-x-3">
+          <img alt="User profile" class="h-9 w-9 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu4IQ_N2qxFOoEPAUnq69GbSXUIoGj1riebW-W3xuJ6w0nSfJWU_su-_wmVXxnYlP7DEdPnp7Y9W4Bfe3nku0xZ2f-poB-05ywBbr6lyeK-S2wsniT2BpHcaZbJMBesDeWbEw0IezvB9hATDyfjd1R07KzDSr0Ja9L_dDOA6sBO6iCN2SpRU1X5wffhrhu9SzE6qNH7CAOhmqIfzWfr0S-oEsGUEGTKfGcN96tfP0K2nhgu1saFC9dguaHH9xlUnHHBaDFuhfpdPfF"/>
+          <div class="flex flex-col">
+            <span class="font-medium text-gray-800">Admin</span>
+            <span class="text-xs text-gray-500">admin@ownhrsolutions.com</span>
+          </div>
+          <span class="material-symbols-outlined text-gray-400 text-base">expand_more</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
+<div class="container mx-auto px-6 py-8">
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+<div>
+<h1 class="text-2xl font-bold text-gray-900">Abc company</h1>
+<p class="text-sm text-gray-500">Client Details</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 text-sm text-gray-600 bg-white border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-50 transition">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+                    Back to Clients
+                </button>
+<button class="flex items-center gap-2 text-sm text-white bg-blue-600 rounded-lg px-4 py-2 hover:bg-blue-700 transition">
+<span class="material-symbols-outlined text-base">edit</span>
+                    Edit Client
+                </button>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-md mb-8">
+<h2 class="text-lg font-semibold text-gray-800 mb-4">Client Details</h2>
+<div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+<div>
+<h3 class="text-base font-medium text-gray-700 mb-3">Contact Information</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-medium text-gray-500">Contact Person</label>
+<p class="text-sm text-gray-900">John Doe</p>
+</div>
+<div>
+<label class="block text-xs font-medium text-gray-500">Email</label>
+<p class="text-sm text-gray-900">john.doe@Abcompany.com</p>
+</div>
+<div>
+<label class="block text-xs font-medium text-gray-500">Phone</label>
+<p class="text-sm text-gray-900">+91 98765 43210</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-base font-medium text-gray-700 mb-3">Additional Information</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-medium text-gray-500">Status</label>
+<span class="pill pill-green">Active</span>
+</div>
+<div>
+<label class="block text-xs font-medium text-gray-500">Address</label>
+<p class="text-sm text-gray-900">123, Virar West, Palghar, Maharashtra - 401303</p>
+</div>
+<div>
+<label class="block text-xs font-medium text-gray-500">Created At</label>
+<p class="text-sm text-gray-900">15 Aug, 2023</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-md mb-8">
+<h2 class="text-lg font-semibold text-gray-800 mb-4">Assign Employees</h2>
+<div class="flex flex-col md:flex-row gap-4 mb-4">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search employees by name or ID..." type="text"/>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<button class="text-sm text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">Assign Selected</button>
+<button class="text-sm text-gray-700 bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">Clear Search</button>
+<button class="text-sm text-gray-700 bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">Select All Visible</button>
+<button class="text-sm text-gray-700 bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300">Deselect All</button>
+</div>
+</div>
+<div class="max-h-60 overflow-y-auto border rounded-lg mb-4">
+<table class="w-full text-sm text-left text-gray-500">
+<thead class="text-xs text-gray-700 uppercase bg-gray-50 sticky top-0">
+<tr>
+<th class="p-2 w-10"><input class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" type="checkbox"/></th>
+<th class="px-4 py-3" scope="col">ID</th>
+<th class="px-4 py-3" scope="col">Name</th>
+<th class="px-4 py-3" scope="col">Status</th>
+<th class="px-4 py-3" scope="col">Designation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white border-b hover:bg-gray-50">
+<td class="p-2"><input class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" type="checkbox"/></td>
+<td class="px-4 py-3 font-medium text-gray-900">EMP-001</td>
+<td class="px-4 py-3">Rahul Sharma</td>
+<td class="px-4 py-3"><span class="pill pill-green !px-2 !py-0.5 !text-xs">Active</span></td>
+<td class="px-4 py-3">Recruiter</td>
+</tr>
+<tr class="bg-white border-b hover:bg-gray-50">
+<td class="p-2"><input class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" type="checkbox"/></td>
+<td class="px-4 py-3 font-medium text-gray-900">EMP-002</td>
+<td class="px-4 py-3">Priya Patel</td>
+<td class="px-4 py-3"><span class="pill pill-green !px-2 !py-0.5 !text-xs">Active</span></td>
+<td class="px-4 py-3">Team Lead</td>
+</tr>
+<tr class="bg-white border-b hover:bg-gray-50">
+<td class="p-2"><input class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" type="checkbox"/></td>
+<td class="px-4 py-3 font-medium text-gray-900">EMP-003</td>
+<td class="px-4 py-3">Amit Singh</td>
+<td class="px-4 py-3"><span class="pill pill-red !px-2 !py-0.5 !text-xs">Inactive</span></td>
+<td class="px-4 py-3">Recruiter</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 class="text-base font-semibold text-gray-800 mb-3">Assigned Employees (2)</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<div class="bg-gray-50 border border-gray-200 rounded-lg p-3 relative">
+<button class="absolute top-2 right-2 p-1 text-gray-400 hover:text-red-500 hover:bg-red-100 rounded-full tooltip">
+<span class="material-symbols-outlined text-sm">delete</span>
+<span class="tooltiptext">Unassign</span>
+</button>
+<p class="text-sm font-semibold text-gray-800">Anjali Mehta</p>
+<p class="text-xs text-gray-500 mb-1">EMP-004</p>
+<p class="text-xs text-gray-500">Assigned: 20 Aug, 2023</p>
+</div>
+<div class="bg-gray-50 border border-gray-200 rounded-lg p-3 relative">
+<button class="absolute top-2 right-2 p-1 text-gray-400 hover:text-red-500 hover:bg-red-100 rounded-full tooltip">
+<span class="material-symbols-outlined text-sm">delete</span>
+<span class="tooltiptext">Unassign</span>
+</button>
+<p class="text-sm font-semibold text-gray-800">Vikram Rathod</p>
+<p class="text-xs text-gray-500 mb-1">EMP-005</p>
+<p class="text-xs text-gray-500">Assigned: 21 Aug, 2023</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-md">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-semibold text-gray-800">Processes</h2>
+<button class="flex items-center gap-2 text-sm text-white bg-blue-600 rounded-lg px-4 py-2 hover:bg-blue-700 transition">
+<span class="material-symbols-outlined text-base">add</span>
+                    Add New Process
+                </button>
+</div>
+<div class="overflow-x-auto">
+<div class="flex flex-col md:flex-row gap-3 mb-4 items-center">
+  <input type="text" placeholder="Search processes..." class="border border-gray-300 rounded-lg px-3 py-2 w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500" />
+  <select class="border border-gray-300 rounded-lg px-3 py-2 w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <option value="">Filter by Status</option>
+    <option value="open">Open</option>
+    <option value="onhold">On Hold</option>
+    <option value="closed">Closed</option>
+  </select>
+</div>
+<table class="w-full table-auto">
+<thead>
+<tr class="bg-gray-100 border-b">
+<th class="text-left py-3 px-4">Process Name</th>
+<th class="text-left py-3 px-4">Hiring Type</th>
+<th class="text-left py-3 px-4">Display Payout</th>
+<th class="text-left py-3 px-4">Real Payout</th>
+<th class="text-left py-3 px-4">Candidate Assigned</th>
+<th class="text-left py-3 px-4">Salary</th>
+<th class="text-left py-3 px-4">Status</th>
+<th class="text-left py-3 px-4">SPOCs</th>
+<th class="text-right py-3 px-4">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="py-3 px-4 border-b font-medium text-gray-900">Software Engineer - Backend</td>
+<td class="py-3 px-4 border-b">Fresher</td>
+<td class="py-3 px-4 border-b">₹10,000</td>
+<td class="py-3 px-4 border-b">₹12,000</td>
+<td class="py-3 px-4 border-b">5</td>
+<td class="py-3 px-4 border-b">₹12 - 15 LPA</td>
+<td class="py-3 px-4 border-b"><span class="pill pill-green">Open</span></td>
+<td class="py-3 px-4 border-b">Rahul Sharma</td>
+<td class="py-3 px-4 border-b text-right">
+<div class="flex justify-end gap-1">
+<a href="process_details.html" class="p-1.5 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100 transition tooltip">
+  <span class="material-symbols-outlined text-lg">visibility</span>
+  <span class="tooltiptext">View</span>
+</a>
+
+<a href="edit-page.html" class="p-1.5 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition tooltip">
+  <span class="material-symbols-outlined text-lg">edit</span>
+  <span class="tooltiptext">Edit</span>
+</a>
+
+<button class="p-1.5 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined text-lg">delete</span><span class="tooltiptext">Delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="py-3 px-4 border-b font-medium text-gray-900">UI/UX Designer</td>
+<td class="py-3 px-4 border-b">Experienced</td>
+<td class="py-3 px-4 border-b">₹8,000</td>
+<td class="py-3 px-4 border-b">₹9,500</td>
+<td class="py-3 px-4 border-b">3</td>
+<td class="py-3 px-4 border-b">₹80k - 1L / month</td>
+<td class="py-3 px-4 border-b"><span class="pill pill-yellow">On Hold</span></td>
+<td class="py-3 px-4 border-b">Priya Patel</td>
+<td class="py-3 px-4 border-b text-right">
+<div class="flex justify-end gap-1">
+<button class="p-1.5 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined text-lg">visibility</span><span class="tooltiptext">View</span></button>
+<button class="p-1.5 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined text-lg">edit</span><span class="tooltiptext">Edit</span></button>
+<button class="p-1.5 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined text-lg">delete</span><span class="tooltiptext">Delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="py-3 px-4 border-b font-medium text-gray-900">DevOps Engineer</td>
+<td class="py-3 px-4 border-b">Combined</td>
+<td class="py-3 px-4 border-b">₹7,500</td>
+<td class="py-3 px-4 border-b">₹8,500</td>
+<td class="py-3 px-4 border-b">2</td>
+<td class="py-3 px-4 border-b">₹10 - 14 LPA</td>
+<td class="py-3 px-4 border-b"><span class="pill pill-red">Closed</span></td>
+<td class="py-3 px-4 border-b">Rahul Sharma</td>
+<td class="py-3 px-4 border-b text-right">
+<div class="flex justify-end gap-1">
+<button class="p-1.5 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined text-lg">visibility</span><span class="tooltiptext">View</span></button>
+<button class="p-1.5 text-gray-500 hover:text-green-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined text-lg">edit</span><span class="tooltiptext">Edit</span></button>
+<button class="p-1.5 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100 transition tooltip"><span class="material-symbols-outlined text-lg">delete</span><span class="tooltiptext">Delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

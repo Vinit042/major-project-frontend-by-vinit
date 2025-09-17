@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #1380ec;
+        --secondary-color: #e7edf3;
+        --text-primary: #0d141b;
+        --text-secondary: #4c739a;
+        --background-light: #f8fafc;
+        --background-dark: #1f2937;
+      }
+      body {
+        font-family: 'Inter', 'Noto Sans', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-gray-50">
+<div class="flex min-h-screen bg-gray-50 text-gray-800">
+  <!-- Sidebar -->
+  <div class="sidebar fixed top-0 left-0 flex flex-col w-64 p-4 space-y-4 shrink-0 bg-[#0d151c] text-white h-screen z-30">
+    <div class="flex items-center gap-2 px-2 pb-4 border-b border-gray-700 mb-2">
+      <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_6_330)">
+          <path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+        </g>
+        <defs>
+          <clipPath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clipPath>
+        </defs>
+      </svg>
+      <h2 class="text-xl font-bold text-white">Owh HR<br>Solutions</h2>
+    </div>
+    <nav class="flex flex-col gap-1 flex-grow">
+      <a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>Dashboard
+      </a>
+      <a href="/client.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">group</span>Clients
+      </a>
+      <a href="/process.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#1976d2] text-white font-semibold shadow hover:bg-[#1565c0] transition">
+        <span class="material-symbols-outlined">work</span>Process
+      </a>
+      <a href="/employee.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">badge</span>Employees
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">groups</span>Teams
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">person_search</span>Candidates
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">upload_file</span>Data Import
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">videocam</span>Meetings
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">mail</span>Messages
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">paid</span>Payout Management
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">event_busy</span>LOP Management
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">monitoring</span>Team Revenue
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">settings</span>Settings
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">receipt_long</span>Expense
+      </a>
+    </nav>
+    <div class="pt-4 border-t border-gray-700 mt-2">
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700 transition">
+        <span class="material-symbols-outlined">logout</span>Logout
+      </a>
+    </div>
+  </div>
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col overflow-hidden ml-64">
+    <!-- Top Navbar -->
+    <header class="bg-white border-b border-gray-200 shadow-sm">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Left: Process Details and Company Name -->
+          <div class="flex flex-col justify-center">
+            <span class="text-lg font-bold text-[#222]">Software Engineer</span>
+            <span class="text-base font-bold text-[#222]">Abc company</span>
+          </div>
+          <!-- Right: Notification and User Info -->
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <button class="p-2 rounded-full text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500"></span>
+              </button>
+            </div>
+            <div class="flex items-center space-x-3">
+              <img alt="User profile" class="h-9 w-9 rounded-full" src="https://randomuser.me/api/portraits/women/44.jpg"/>
+              <div class="flex flex-col">
+                <span class="font-medium text-gray-800">Admin</span>
+                <span class="text-xs text-gray-500">admin@ownhrsolutions.com</span>
+              </div>
+              <span class="material-symbols-outlined text-gray-400 text-base">expand_more</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--...existing code... -->
+     <div class="p-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-8">
+<div class="bg-white p-4 rounded-lg shadow flex items-center gap-4">
+<div class="bg-[var(--secondary-color)] p-3 rounded-full"><span class="material-symbols-outlined text-[var(--primary-color)]">work_outline</span></div>
+<div>
+<p class="text-sm text-[var(--text-secondary)]">Openings</p>
+<p class="text-lg font-bold">5</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow flex items-center gap-4">
+<div class="bg-[var(--secondary-color)] p-3 rounded-full"><span class="material-symbols-outlined text-[var(--primary-color)]">attach_money</span></div>
+<div>
+<p class="text-sm text-[var(--text-secondary)]">Salary Bracket</p>
+<p class="text-lg font-bold"> ₹80k - ₹120k</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow flex items-center gap-4">
+<div class="bg-[var(--secondary-color)] p-3 rounded-full"><span class="material-symbols-outlined text-[var(--primary-color)]">update</span></div>
+<div>
+<p class="text-sm text-[var(--text-secondary)]">Clawback</p>
+<p class="text-lg font-bold">90 Days</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow flex items-center gap-4">
+<div class="bg-[var(--secondary-color)] p-3 rounded-full"><span class="material-symbols-outlined text-[var(--primary-color)]">receipt</span></div>
+<div>
+<p class="text-sm text-[var(--text-secondary)]">Invoice Time</p>
+<p class="text-lg font-bold">30 Days</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow flex items-center gap-4">
+<div class="bg-[var(--secondary-color)] p-3 rounded-full"><span class="material-symbols-outlined text-[var(--primary-color)]">event</span></div>
+<div>
+<p class="text-sm text-[var(--text-secondary)]">Interviews</p>
+<p class="text-lg font-bold">Scheduled</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow flex items-center gap-4">
+<div class="bg-[var(--secondary-color)] p-3 rounded-full"><span class="material-symbols-outlined text-[var(--primary-color)]">schedule</span></div>
+<div>
+<p class="text-sm text-[var(--text-secondary)]">Shift Timings</p>
+<p class="text-lg font-bold">9am - 5pm</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-white p-6 rounded-lg shadow">
+<h2 class="text-xl font-bold mb-4">Process Information</h2>
+<p class="text-[var(--text-secondary)] mb-4">
+                  This role involves managing the entire sales cycle, from lead generation to closing deals, with a focus on building strong client relationships and achieving sales
+                  targets. The ideal candidate will have a proven track record in sales, excellent communication skills, and a strong understanding of the industry.
+                </p>
+<ul class="space-y-2 mb-4">
+<li class="flex items-center gap-2"><span class="text-red-500">🔥</span> Urgent Hiring</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-[var(--primary-color)]">check_circle</span> Minimum 5 years of experience</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-[var(--primary-color)]">check_circle</span> Remote work possible</li>
+</ul>
+<a class="text-[var(--primary-color)] font-semibold flex items-center gap-1 hover:underline" href="#">
+<span class="material-symbols-outlined">attach_file</span> Upload JD PDF
+                </a>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+
+<div class="flex items-center justify-between mb-6">
+  <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight">Keywords &amp; Smart Insights</h2>
+  <div class="flex gap-2">
+  </div>
+</div>
+<div class="flex gap-2 mb-4">
+  <button class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold shadow hover:from-blue-600 hover:to-blue-800">
+    <span class="material-symbols-outlined text-base">refresh</span> Recalculate
+  </button>
+  <button class="bg-gradient-to-r from-green-400 to-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold shadow hover:from-green-500 hover:to-green-700">
+    <span class="material-symbols-outlined text-base">content_copy</span> Copy All Keywords
+  </button>
+  <button class="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-semibold shadow hover:from-purple-500 hover:to-purple-700">
+    <span class="material-symbols-outlined text-base">edit</span> Edit
+  </button>
+</div>
+
+<!-- Keyword Categories -->
+<div class="mb-6">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div>
+      <div class="font-semibold text-blue-700 mb-2">Hard Skills</div>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="bg-blue-50 text-blue-700 rounded px-3 py-1 text-sm font-medium">Sales</span>
+        <span class="bg-blue-50 text-blue-700 rounded px-3 py-1 text-sm font-medium">Account Management</span>
+      </div>
+    </div>
+    <div>
+      <div class="font-semibold text-green-700 mb-2">Soft Skills</div>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="bg-green-50 text-green-700 rounded px-3 py-1 text-sm font-medium">Negotiation</span>
+        <span class="bg-green-50 text-green-700 rounded px-3 py-1 text-sm font-medium">Client Relations</span>
+      </div>
+    </div>
+    <div>
+      <div class="font-semibold text-purple-700 mb-2">Tools/Software</div>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="bg-purple-50 text-purple-700 rounded px-3 py-1 text-sm font-medium">Salesforce</span>
+        <span class="bg-purple-50 text-purple-700 rounded px-3 py-1 text-sm font-medium">Business Development</span>
+      </div>
+    </div>
+<!-- Education & Location Section -->
+<div class="bg-white p-6 rounded-lg shadow mt-6">
+  <h2 class="text-xl font-bold mb-4">Education &amp; Location</h2>
+  <div class="flex flex-wrap gap-4">
+    <span class="bg-blue-50 text-blue-700 rounded px-4 py-2 text-base font-semibold flex items-center gap-2">
+      <span class="material-symbols-outlined text-lg">school</span> MBA
+    </span>
+    <span class="bg-green-50 text-green-700 rounded px-4 py-2 text-base font-semibold flex items-center gap-2">
+      <span class="material-symbols-outlined text-lg">location_on</span> Mumbai
+    </span>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- AI-Recommended Skills -->
+<div>
+  <div class="font-semibold text-gray-700 mb-2">Recommended Skills - AI-generated</div>
+  <div class="flex flex-wrap gap-2 mb-4">
+    <div class="flex items-center bg-blue-100 text-blue-700 rounded px-3 py-1 text-sm font-medium">
+      CRM Software
+      <button class="ml-2 text-blue-600 hover:text-blue-800" title="Add"><span class="material-symbols-outlined text-sm">add</span></button>
+    </div>
+    <div class="flex items-center bg-blue-100 text-blue-700 rounded px-3 py-1 text-sm font-medium">
+      Lead Generation
+      <button class="ml-2 text-blue-600 hover:text-blue-800" title="Add"><span class="material-symbols-outlined text-sm">add</span></button>
+    </div>
+    <div class="flex items-center bg-blue-100 text-blue-700 rounded px-3 py-1 text-sm font-medium">
+      Cold Calling
+      <button class="ml-2 text-blue-600 hover:text-blue-800" title="Add"><span class="material-symbols-outlined text-sm">add</span></button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="bg-white p-6 rounded-lg shadow">
+<h2 class="text-xl font-bold mb-4">SPOCs</h2>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<img alt="Ethan Carter" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRKB7mNX-gEUGjiVio6Yig4dx6OB0SeEn_uRVwI3j1Eo4zFeLpo3bsncPqNiFzxeHO--pzis7nMAJZbK1NLK6hsvO3_mK051vOwWarNq0tKKk11wB4dLrpDhgBpVufMPdJrgUMq16mnBCEPuIxm8M14o4dO4VO5WI17Ag2x-y61hipuykzbo3N7y9Cj_jjUfacxHgo6IeKroc0uFzsX_-4TiCe7pl4meTq5QjLQ59sY34ur4v5l2Is0YfvPqGUNKmZJxAKm9r1x2Mt"/>
+<div>
+<p class="font-semibold">Ethan Carter</p>
+<p class="text-sm text-[var(--text-secondary)]">Hiring Manager</p>
+</div>
+<span class="ml-auto bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">Active</span>
+</div>
+<div class="flex items-center gap-4">
+<img alt="Sophia Bennett" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjaElBDvzRxWv2CrNT3e-hoPACNztexYjPdMUDAJ0psGR_d_AojUmlhu2_8QxtC_hYg9c5DBD4qmW0ufSURIaGw2KYI_ynIuvaefIVTTg8pUSHr8O6bKea3uLXU3ebh6-GF3rCWRD1AwWWn8Vp8mfU9GRD4bjUIWZKboaQWpRhyb5DMQcmw0I70HhCNRN-NBjJ4V6S2ujnl3QXhKSsf9jineIlBE4ArClhOnHG2WyRER9KCPUHhzaMOniVjCqPKyvACbWb5aVsLH06"/>
+<div>
+<p class="font-semibold">Sophia Bennett</p>
+<p class="text-sm text-[var(--text-secondary)]">HR Business Partner</p>
+</div>
+<span class="ml-auto bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">Active</span>
+</div>
+<div class="flex items-center gap-4">
+<img alt="Liam Harper" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiAqIsdZXZpXaKq0_ErFyXZt7MVGd-hy-DdlWbzZEZ-zGqW_3o-94iAir7Xx5qsr4bLtGgiB1iIqDrmDgu7uxdipYZ26IQaIfehKHL1LDONBonoxcpO5UEpwuaX4umrF2IAr8QJ9W5HctrrFYHmCsTA2oNSSdAc1DfBtLbPvo8NCQEf9XW3ZZ5pVwRxDX_qq2rE1xp38DfiYx4gu8zqb9IfGZYABWWd05Or8vAuFYqXBpQJXy4n7f6SNZ53ODKK1KFxZfo7ZRFnpmJ"/>
+<div>
+<p class="font-semibold">Liam Harper</p>
+<p class="text-sm text-[var(--text-secondary)]">Talent Acquisition</p>
+</div>
+<span class="ml-auto bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">Active</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<h2 class="text-xl font-bold mb-4">Payout Details</h2>
+<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Type: Fix</span>
+<div class="space-y-2 mb-4">
+<div class="flex justify-between">
+<span class="text-[var(--text-secondary)]">Display Amount:</span>
+<span class="font-semibold">₹10,000</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[var(--text-secondary)]">Real Amount:</span>
+<span class="font-semibold">₹12,000</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+<h2 class="text-xl font-bold mb-4">Attachments</h2>
+<ul class="space-y-3">
+<li><a class="text-[var(--primary-color)] flex items-center gap-2 hover:underline" href="#"><span class="material-symbols-outlined">description</span> Job Description PDF</a></li>
+<li><a class="text-[var(--primary-color)] flex items-center gap-2 hover:underline" href="#"><span class="material-symbols-outlined">handshake</span> Client Agreement</a></li>
+<li><a class="text-[var(--primary-color)] flex items-center gap-2 hover:underline" href="#"><span class="material-symbols-outlined">receipt_long</span> Invoice Format</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-white p-6 rounded-lg shadow">
+<h2 class="text-xl font-bold mb-4">Related Candidates</h2>
+<div class="mb-4 flex items-center gap-2">
+  <input type="text" placeholder="Search candidates..." class="border border-gray-300 rounded-lg px-3 py-2 w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500" />
+  <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 flex items-center gap-1">
+    <span class="material-symbols-outlined">search</span> Search
+  </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b">
+<th class="p-3">Candidate Name</th>
+<th class="p-3">Matching Score</th>
+<th class="p-3">Employee Name &amp; ID</th>
+<th class="p-3">Employee Type</th>
+<th class="p-3">Percentage</th>
+<th class="p-3">Commission</th>
+<th class="p-3">Status</th>
+<th class="p-3">Last Contacted</th>
+<th class="p-3">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b hover:bg-gray-50">
+  <td class="p-3 font-semibold">Ava Rodriguez</td>
+  <td class="p-3"><span class="font-bold text-green-600">95%</span></td>
+  <td class="p-3">John Doe (EMP001)</td>
+  <td class="p-3">Salary</td>
+  <td class="p-3">0</td>
+  <td class="p-3">0</td>
+  <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Interviewing</span></td>
+  <td class="p-3 text-[var(--text-secondary)]">2 days ago</td>
+  <td class="p-3 flex gap-2">
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">visibility</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">call</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">note_add</span></button>
+  </td>
+</tr>
+<tr class="border-b hover:bg-gray-50">
+  <td class="p-3 font-semibold">Noah Thompson</td>
+  <td class="p-3"><span class="font-bold text-green-600">88%</span></td>
+  <td class="p-3">Jane Smith (EMP002)</td>
+  <td class="p-3">Percentage</td>
+  <td class="p-3">10%</td>
+  <td class="p-3">1000</td>
+  <td class="p-3"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Offered</span></td>
+  <td class="p-3 text-[var(--text-secondary)]">5 days ago</td>
+  <td class="p-3 flex gap-2">
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">visibility</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">call</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">note_add</span></button>
+  </td>
+</tr>
+<tr class="border-b hover:bg-gray-50">
+  <td class="p-3 font-semibold">Isabella Clark</td>
+  <td class="p-3"><span class="font-bold text-orange-500">76%</span></td>
+  <td class="p-3">Michael Lee (EMP003)</td>
+  <td class="p-3">Salary</td>
+  <td class="p-3">0</td>
+  <td class="p-3">0</td>
+  <td class="p-3"><span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs">In Review</span></td>
+  <td class="p-3 text-[var(--text-secondary)]">1 week ago</td>
+  <td class="p-3 flex gap-2">
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">visibility</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">call</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">note_add</span></button>
+  </td>
+</tr>
+<tr class="border-b hover:bg-gray-50">
+  <td class="p-3 font-semibold">Jackson Lewis</td>
+  <td class="p-3"><span class="font-bold text-red-600">65%</span></td>
+  <td class="p-3">Emily Davis (EMP004)</td>
+  <td class="p-3">Percentage</td>
+  <td class="p-3">7%</td>
+  <td class="p-3">700</td>
+  <td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Rejected</span></td>
+  <td class="p-3 text-[var(--text-secondary)]">2 weeks ago</td>
+  <td class="p-3 flex gap-2">
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">visibility</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">call</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">note_add</span></button>
+  </td>
+</tr>
+<tr class="hover:bg-gray-50">
+  <td class="p-3 font-semibold">Mia Walker</td>
+  <td class="p-3"><span class="font-bold text-red-600">52%</span></td>
+  <td class="p-3">Chris Brown (EMP005)</td>
+  <td class="p-3">Salary</td>
+  <td class="p-3">0</td>
+  <td class="p-3">0</td>
+  <td class="p-3"><span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Screening</span></td>
+  <td class="p-3 text-[var(--text-secondary)]">3 weeks ago</td>
+  <td class="p-3 flex gap-2">
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">visibility</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">call</span></button>
+    <button class="p-1 rounded-full hover:bg-gray-200"><span class="material-symbols-outlined text-lg">note_add</span></button>
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
