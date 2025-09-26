@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #e0e7ff;
+        --text-primary: #181f2a;
+        --text-secondary: #64748b;
+        --background-light: #f3f4f6;
+        --background-dark: #232b3b;
+      }
+      body {
+              font-family: 'Inter', 'Noto Sans', sans-serif;
+              background: linear-gradient(120deg, #e0e7ff 0%, #f3f4f6 100%);
+              color: var(--text-primary);
+            }
+    </style>
+</head>
+<body class="bg-gray-50">
+<div class="flex min-h-screen bg-gray-50 text-gray-800">
+  <!-- Sidebar -->
+  <div class="sidebar fixed top-0 left-0 flex flex-col w-64 p-4 space-y-4 shrink-0 bg-[#0d151c] text-white h-screen z-30">
+    <div class="flex items-center gap-2 px-2 pb-4 border-b border-gray-700 mb-2">
+      <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_6_330)">
+          <path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+        </g>
+        <defs>
+          <clipPath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clipPath>
+        </defs>
+      </svg>
+      <h2 class="text-xl font-bold text-white">Owh HR<br>Solutions</h2>
+    </div>
+    <nav class="flex flex-col gap-1 flex-grow">
+      <a class="nav-item flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>Dashboard
+      </a>
+      <a href="client.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">group</span>Clients
+      </a>
+      <a href="process.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">work</span>Process
+      </a>
+      <a href="/employee.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">badge</span>Employees
+      </a>
+      <a href="team.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#1976d2] text-white font-semibold shadow hover:bg-[#1565c0] transition">
+        <span class="material-symbols-outlined">groups</span>Teams
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">person_search</span>Candidates
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">upload_file</span>Data Import
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">videocam</span>Meetings
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">mail</span>Messages
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">paid</span>Payout Management
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">event_busy</span>LOP Management
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">monitoring</span>Team Revenue
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">settings</span>Settings
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700">
+        <span class="material-symbols-outlined">receipt_long</span>Expense
+      </a>
+    </nav>
+    <div class="pt-4 border-t border-gray-700 mt-2">
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-700 transition">
+        <span class="material-symbols-outlined">logout</span>Logout
+      </a>
+    </div>
+  </div>
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col overflow-hidden ml-64">
+    <!-- Top Navbar -->
+    <header class="bg-white border-b border-gray-200 shadow-sm">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Left: Process Details and Company Name -->
+          <div class="flex flex-col justify-center">
+            <span class="text-base font-bold text-[#222]">Team Management</span>
+          </div>
+          <!-- Right: Notification and User Info -->
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <button class="p-2 rounded-full text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500"></span>
+              </button>
+            </div>
+            <div class="flex items-center space-x-3">
+              <img alt="User profile" class="h-9 w-9 rounded-full" src="https://randomuser.me/api/portraits/women/44.jpg"/>
+              <div class="flex flex-col">
+                <span class="font-medium text-gray-800">Admin</span>
+                <span class="text-xs text-gray-500">admin@ownhrsolutions.com</span>
+              </div>
+              <span class="material-symbols-outlined text-gray-400 text-base">expand_more</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+<main class="flex-1 p-8">
+<section class="mb-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-gradient-to-br from-green-400 to-green-600 p-6 rounded-xl shadow-lg text-white">
+<h3 class="text-lg font-semibold">Total Display Revenue</h3>
+<p class="text-4xl font-bold mt-2">₹0.00</p>
+</div>
+<div class="bg-gradient-to-br from-blue-400 to-blue-600 p-6 rounded-xl shadow-lg text-white">
+<h3 class="text-lg font-semibold">Total Actual Revenue</h3>
+<p class="text-4xl font-bold mt-2">₹0.00</p>
+</div>
+</div>
+<div class="flex gap-2 mt-4">
+<button class="bg-primary text-white py-3 px-6 rounded-full text-base font-semibold shadow-lg hover:bg-blue-700 transition">Today</button>
+<button class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-3 px-6 rounded-full text-base font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Yesterday</button>
+<button class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-3 px-6 rounded-full text-base font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Last 7 Days</button>
+<button class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-3 px-6 rounded-full text-base font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">Last 30 Days</button>
+</div>
+</section>
+<section class="mb-8 p-6 bg-white dark:bg-gray-900/50 rounded-xl shadow-md">
+<h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Filter by Date Range</h3>
+<div class="flex flex-wrap items-center gap-4 mb-4">
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary" name="date-range" type="radio"/> This Month</label>
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary" name="date-range" type="radio"/> Last Month</label>
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary" name="date-range" type="radio"/> This Quarter</label>
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary" name="date-range" type="radio"/> This Year</label>
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary" name="date-range" type="radio"/> All Time</label>
+<label class="flex items-center gap-2"><input class="form-radio text-primary focus:ring-primary" name="date-range" type="radio"/> Custom Range</label>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<input class="form-input bg-background-light dark:bg-background-dark border-gray-300 dark:border-gray-700 rounded-lg" type="date"/>
+<input class="form-input bg-background-light dark:bg-background-dark border-gray-300 dark:border-gray-700 rounded-lg" type="date"/>
+</div>
+<div class="flex gap-4">
+<button class="bg-green-500 text-white font-semibold py-3 px-8 rounded-xl text-base shadow-lg hover:bg-green-600 transition-colors">Apply Filter</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold py-3 px-8 rounded-xl text-base shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Clear Filter</button>
+</div>
+</section>
+<section class="mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+<div class="p-6 bg-white dark:bg-gray-900/50 rounded-xl shadow-md">
+<p class="text-gray-500 dark:text-gray-400">Total Teams</p>
+<p class="text-3xl font-bold mt-1 text-gray-900 dark:text-white">12</p>
+</div>
+<div class="p-6 bg-white dark:bg-gray-900/50 rounded-xl shadow-md">
+<p class="text-gray-500 dark:text-gray-400">Total Members</p>
+<p class="text-3xl font-bold mt-1 text-gray-900 dark:text-white">150</p>
+</div>
+<div class="p-6 bg-white dark:bg-gray-900/50 rounded-xl shadow-md">
+<p class="text-gray-500 dark:text-gray-400">Top Team</p>
+<p class="text-3xl font-bold mt-1 text-gray-900 dark:text-white">Team Alpha</p>
+</div>
+<div class="p-6 bg-white dark:bg-gray-900/50 rounded-xl shadow-md">
+<p class="text-gray-500 dark:text-gray-400">Avg Revenue</p>
+<p class="text-3xl font-bold mt-1 text-gray-900 dark:text-white">₹50,000</p>
+</div>
+</section>
+<section>
+<h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Teams List</h3>
+<div class="space-y-4">
+<div class="p-4 bg-white dark:bg-gray-900/50 rounded-xl shadow-md hover:shadow-lg transition-shadow grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+<div class="md:col-span-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-500">emoji_events</span>
+<p class="text-lg font-bold text-gray-900 dark:text-white">Team Alpha</p>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Leader: Sarah Johnson | 15 Members</p>
+</div>
+<div class="md:col-span-1 flex gap-4">
+<div class="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-sm font-semibold py-1 px-3 rounded-full">Display: ₹72,000</div>
+<div class="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-semibold py-1 px-3 rounded-full">Actual: ₹73,500</div>
+</div>
+<div class="md:col-span-2 flex justify-end gap-2">
+<button class="bg-purple-500 text-white text-base font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-purple-600 transition-colors">View Details</button>
+<button class="bg-yellow-500 text-white text-base font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors">Edit</button>
+<button class="bg-red-500 text-white text-base font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-red-600 transition-colors">Delete</button>
+</div>
+</div>
+<div class="p-4 bg-white dark:bg-gray-900/50 rounded-xl shadow-md hover:shadow-lg transition-shadow grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+<div class="md:col-span-1">
+<p class="text-lg font-bold text-gray-900 dark:text-white">Team Beta</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Leader: David Lee | 12 Members</p>
+</div>
+<div class="md:col-span-1 flex gap-4">
+<div class="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-sm font-semibold py-1 px-3 rounded-full">Display: ₹60,000</div>
+<div class="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-semibold py-1 px-3 rounded-full">Actual: ₹58,000</div>
+</div>
+<div class="md:col-span-2 flex justify-end gap-2">
+<button class="bg-purple-500 text-white text-base font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-purple-600 transition-colors">View Details</button>
+<button class="bg-yellow-500 text-white text-base font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors">Edit</button>
+<button class="bg-red-500 text-white text-base font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-red-600 transition-colors">Delete</button>
+</div>
+</div>
+<div class="p-4 bg-white dark:bg-gray-900/50 rounded-xl shadow-md hover:shadow-lg transition-shadow grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+<div class="md:col-span-1">
+<p class="text-lg font-bold text-gray-900 dark:text-white">Team Gamma</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Leader: Emily Chen | 18 Members</p>
+</div>
+<div class="md:col-span-1 flex gap-4">
+<div class="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-sm font-semibold py-1 px-3 rounded-full">Display: ₹90,000</div>
+<div class="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-semibold py-1 px-3 rounded-full">Actual: ₹85,000</div>
+</div>
+<div class="md:col-span-2 flex justify-end gap-2">
+<button class="bg-purple-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-purple-600 transition-colors">View Details</button>
+<button class="bg-yellow-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-yellow-600 transition-colors">Edit</button>
+<button class="bg-red-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-red-600 transition-colors">Delete</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+
+</body></html>
